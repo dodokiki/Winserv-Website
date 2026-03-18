@@ -1,0 +1,15 @@
+node_modules/
+.DS_Store
+Thumbs.db
+
+# Editor
+.vscode/
+.idea/
+
+# OS / temp
+*.log
+
+# Env (avoid secrets)
+.env
+.env.*
+
