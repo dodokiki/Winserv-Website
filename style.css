@@ -6,13 +6,17 @@ WINSERV Brand StyleSheet - Premium Aesthetic + Racing
 
 :root {
     /* Brand Colors */
-    --primary: #0A1B3F;
-    /* Deep Navy Blue */
-    --primary-light: #1A3673;
+    --primary: #2F343C;
+    /* Graphite Gray */
+    --primary-light: #4B5563;
     --secondary: #E51A2D;
     /* Strong Red */
     --secondary-hover: #C41525;
-    --accent: #007BFF;
+    --accent: #4B5563;
+    --logo-yellow: #ffdf00;
+    --logo-cyan: #22c6ff;
+    --logo-green: #21b66f;
+    --logo-orange: #ff8a2a;
 
     /* Neutrals */
     --light: #F7F9FC;
@@ -27,8 +31,8 @@ WINSERV Brand StyleSheet - Premium Aesthetic + Racing
     --radius-lg: 24px;
 
     --shadow-sm: 0 4px 6px -1px rgba(0, 0, 0, 0.05);
-    --shadow-md: 0 10px 30px -5px rgba(10, 27, 63, 0.1);
-    --shadow-lg: 0 20px 40px -5px rgba(10, 27, 63, 0.15);
+    --shadow-md: 0 10px 30px -5px rgba(47, 52, 60, 0.12);
+    --shadow-lg: 0 20px 40px -5px rgba(47, 52, 60, 0.18);
 
     /* Typography */
     --font-heading: 'Kanit', sans-serif;
@@ -247,21 +251,15 @@ img {
 .logo {
     display: flex;
     align-items: center;
-    gap: 8px;
-    font-family: var(--font-heading);
-    font-size: 1.5rem;
-    font-weight: 800;
-    color: var(--primary);
-    letter-spacing: 1px;
+    line-height: 0;
 }
 
-.logo-icon {
-    color: var(--secondary);
-    font-size: 1.2rem;
-}
-
-.logo .dot {
-    color: var(--secondary);
+.site-logo-horizontal {
+    height: 40px;
+    width: auto;
+    border-radius: 0;
+    object-fit: contain;
+    display: block;
 }
 
 .nav-links {
@@ -313,7 +311,7 @@ img {
     left: 0;
     width: 100%;
     height: 100vh;
-    background-color: rgba(10, 27, 63, 0.95);
+    background-color: rgba(47, 52, 60, 0.95);
     backdrop-filter: blur(10px);
     z-index: 2000;
     transform: translateX(100%);
@@ -362,7 +360,7 @@ img {
 .chequered-strip {
     width: 100%;
     height: 6px;
-    background-image: conic-gradient(#1A3673 90deg, #ffffff 90deg 180deg, #1A3673 180deg 270deg, #ffffff 270deg);
+    background-image: conic-gradient(#4B5563 90deg, #ffffff 90deg 180deg, #4B5563 180deg 270deg, #ffffff 270deg);
     background-size: 10px 10px;
     position: fixed;
     top: 0;
@@ -449,17 +447,64 @@ section {
     height: 100%;
     z-index: 1;
     overflow: hidden;
-    /* Fallback background when video is separated */
     background:
-        radial-gradient(1200px 600px at 20% 20%, rgba(229, 26, 45, 0.25), transparent 55%),
-        radial-gradient(900px 500px at 80% 30%, rgba(0, 123, 255, 0.18), transparent 60%),
-        linear-gradient(135deg, rgba(10, 27, 63, 1), rgba(26, 54, 115, 1));
+        radial-gradient(560px 320px at 10% 72%, rgba(255, 223, 0, 0.16), transparent 68%),
+        radial-gradient(520px 290px at 88% 16%, rgba(34, 198, 255, 0.14), transparent 70%),
+        radial-gradient(480px 280px at 82% 68%, rgba(33, 182, 111, 0.12), transparent 72%),
+        radial-gradient(430px 250px at 28% 88%, rgba(255, 138, 42, 0.1), transparent 72%),
+        radial-gradient(950px 520px at 16% 10%, rgba(229, 26, 45, 0.3), transparent 62%),
+        radial-gradient(800px 460px at 86% 88%, rgba(255, 255, 255, 0.08), transparent 66%),
+        repeating-linear-gradient(135deg,
+            rgba(255, 255, 255, 0.045) 0px,
+            rgba(255, 255, 255, 0.045) 2px,
+            transparent 2px,
+            transparent 20px),
+        linear-gradient(125deg, #1f242a 0%, #2f343c 45%, #3a4049 100%);
+}
+
+.hero-bg::before {
+    content: "";
+    position: absolute;
+    inset: 0;
+    background:
+        repeating-linear-gradient(45deg,
+            rgba(255, 255, 255, 0.09) 0 16px,
+            rgba(0, 0, 0, 0.12) 16px 32px);
+    opacity: 0.08;
+    mix-blend-mode: soft-light;
+    transform: translateX(-12%);
+}
+
+.hero-bg::after {
+    content: "";
+    position: absolute;
+    left: -8%;
+    right: -8%;
+    bottom: 8%;
+    height: 76px;
+    background:
+        conic-gradient(from 45deg,
+            rgba(255, 255, 255, 0.85) 0 25%,
+            rgba(18, 18, 18, 0.9) 0 50%,
+            rgba(255, 255, 255, 0.85) 0 75%,
+            rgba(18, 18, 18, 0.9) 0 100%);
+    background-size: 28px 28px;
+    opacity: 0.11;
+    transform: perspective(500px) rotateX(58deg);
+    filter: blur(0.4px);
 }
 
 .video-overlay {
     position: absolute;
     inset: 0;
-    background: rgba(10, 27, 63, 0.75);
+    background:
+        linear-gradient(120deg, rgba(15, 16, 20, 0.72) 0%, rgba(15, 16, 20, 0.52) 42%, rgba(15, 16, 20, 0.82) 100%),
+        radial-gradient(900px 420px at 22% 16%, rgba(229, 26, 45, 0.16), transparent 68%),
+        linear-gradient(90deg,
+            rgba(255, 223, 0, 0.05) 0%,
+            rgba(34, 198, 255, 0.04) 26%,
+            rgba(33, 182, 111, 0.04) 55%,
+            rgba(255, 138, 42, 0.04) 100%);
     z-index: 2;
 }
 
@@ -708,6 +753,34 @@ section {
 }
 
 /* ----------------- PORTFOLIO (BEFORE & AFTER) ----------------- */
+.portfolio {
+    position: relative;
+    overflow: hidden;
+    background:
+        radial-gradient(700px 360px at 12% 14%, rgba(255, 223, 0, 0.12), transparent 70%),
+        radial-gradient(720px 380px at 86% 16%, rgba(34, 198, 255, 0.1), transparent 72%),
+        radial-gradient(640px 340px at 80% 88%, rgba(33, 182, 111, 0.1), transparent 74%),
+        radial-gradient(620px 320px at 18% 86%, rgba(255, 138, 42, 0.08), transparent 74%),
+        linear-gradient(135deg, #1b2026 0%, #252b33 50%, #2f343c 100%);
+}
+
+.portfolio::before {
+    content: "";
+    position: absolute;
+    inset: 0;
+    background:
+        repeating-linear-gradient(135deg,
+            rgba(255, 255, 255, 0.05) 0 2px,
+            transparent 2px 22px);
+    opacity: 0.28;
+    pointer-events: none;
+}
+
+.portfolio .container {
+    position: relative;
+    z-index: 1;
+}
+
 .bna-grid {
     display: grid;
     grid-template-columns: repeat(2, 1fr);
@@ -715,17 +788,20 @@ section {
 }
 
 .bna-card {
-    background: rgba(255, 255, 255, 0.05);
+    background:
+        linear-gradient(145deg, rgba(255, 255, 255, 0.08), rgba(255, 255, 255, 0.03));
     border-radius: var(--radius-md);
     overflow: hidden;
-    border: 1px solid rgba(255, 255, 255, 0.1);
+    border: 1px solid rgba(255, 255, 255, 0.16);
     transition: var(--transition);
+    box-shadow: 0 16px 30px -18px rgba(0, 0, 0, 0.65);
 }
 
 .bna-card:hover {
     transform: translateY(-5px);
-    background: rgba(255, 255, 255, 0.1);
-    border-color: rgba(255, 255, 255, 0.2);
+    background:
+        linear-gradient(145deg, rgba(255, 223, 0, 0.12), rgba(34, 198, 255, 0.08) 46%, rgba(33, 182, 111, 0.08));
+    border-color: rgba(255, 255, 255, 0.32);
 }
 
 .bna-images {
@@ -778,6 +854,85 @@ section {
     color: var(--gray-light);
     font-size: 0.95rem;
     margin: 0;
+}
+
+/* Single image version (for composite Before & After images) */
+.bna-card.bna-single {
+    background:
+        linear-gradient(155deg, rgba(255, 255, 255, 0.09), rgba(255, 255, 255, 0.035));
+}
+
+.bna-single-img {
+    position: relative;
+    overflow: hidden;
+}
+
+.bna-single-img img {
+    width: 100%;
+    height: auto;
+    object-fit: contain;
+    border-radius: 0;
+    display: block;
+}
+
+/* Lightbox overlay for zooming portfolio images */
+.lightbox {
+    position: fixed;
+    inset: 0;
+    display: none;
+    align-items: center;
+    justify-content: center;
+    z-index: 3000;
+}
+
+.lightbox.active {
+    display: flex;
+}
+
+.lightbox-backdrop {
+    position: absolute;
+    inset: 0;
+    background: rgba(0, 0, 0, 0.8);
+    backdrop-filter: blur(4px);
+}
+
+.lightbox-content {
+    position: relative;
+    max-width: min(1200px, 96vw);
+    max-height: min(90vh, 700px);
+    padding: 8px;
+}
+
+.lightbox-img {
+    width: 100%;
+    height: 100%;
+    object-fit: contain;
+    border-radius: var(--radius-md);
+    box-shadow: var(--shadow-lg);
+    position: relative;
+    z-index: 1;
+    background: #000;
+}
+
+.lightbox-close {
+    position: absolute;
+    top: -40px;
+    right: 0;
+    background: rgba(0, 0, 0, 0.7);
+    color: #fff;
+    border: none;
+    border-radius: 999px;
+    width: 32px;
+    height: 32px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+    z-index: 2;
+}
+
+.lightbox-close:hover {
+    background: rgba(229, 26, 45, 0.9);
 }
 
 /* ----------------- TRUST (PARTNERS) ----------------- */
@@ -893,6 +1048,10 @@ section {
     box-shadow: var(--shadow-md);
 }
 
+.facebook-card {
+    cursor: pointer;
+}
+
 .highlight-box {
     background-color: rgba(229, 26, 45, 0.05);
     border-color: rgba(229, 26, 45, 0.2);
@@ -945,10 +1104,18 @@ section {
 }
 
 .footer-logo {
-    font-family: var(--font-heading);
-    font-weight: 700;
-    font-size: 1.25rem;
-    color: var(--white);
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    background: #ffffff;
+    border: 1px solid rgba(0, 0, 0, 0.08);
+    border-radius: 10px;
+    padding: 6px 10px;
+    box-shadow: 0 4px 14px rgba(0, 0, 0, 0.25);
+}
+
+.footer-logo-image {
+    height: 34px;
 }
 
 /* ----------------- ANIMATIONS ----------------- */
